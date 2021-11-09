@@ -7,14 +7,14 @@ from matplotlib import pyplot as plt
 
 if __name__ == "__main__":
     # number of time steps in the experiment
-    num_time_steps = 1000
+    num_time_steps = 500
 
     # assume initial state is 0 (state A)
     curr_state = 0
 
     # transition probabilities
-    k_a = 0.01 # a --> b
-    k_b = 0.04 # b --> a
+    k_a = 0.02 # a --> b
+    k_b = 0.06 # b --> a
     
     transition_probabilities = (k_a, k_b)
 
@@ -28,5 +28,7 @@ if __name__ == "__main__":
             curr_state = (curr_state + 1) % 2
         noise.append(curr_state)
             
-    sns.lineplot(x = range(num_time_steps + 1), y = noise)
+    sns_plot = sns.lineplot(x = range(num_time_steps + 1), y = noise)
     plt.show()
+
+    sns_plot.figure.savefig("telegraph_noise_example.png")

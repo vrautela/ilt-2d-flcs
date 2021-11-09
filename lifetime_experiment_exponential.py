@@ -8,5 +8,7 @@ if __name__ == "__main__":
 
     # sample of size 10,000 drawn from an exponential distribution
     sample = rng.exponential(1, 10000)
-    sns.displot(sample)
+    sns_plot = sns.displot(sample)
     plt.show()
+
+    sns_plot.savefig('life_experiment_exponential.png')
